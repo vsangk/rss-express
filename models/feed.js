@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   Feed.associate = function (models) {
     // associations can be defined here
-    Feed.belongsToMany(models.User, { through: models.UserFeed });
+    Feed.belongsToMany(models.User, { through: 'UserFeeds' });
     Feed.hasMany(models.Article);
   };
   return Feed;
