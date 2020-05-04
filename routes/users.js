@@ -8,6 +8,11 @@ router.get('/', async function (req, res, next) {
   res.json(users);
 });
 
+router.post('/', async function (req, res, next) {
+  const user = await User.create(req.body);
+  res.json(user);
+});
+
 router.get('/:userId/feeds', async function (req, res, next) {
   const user = await User.findByPk(req.params.userId);
   const feeds = await user.getFeeds();
