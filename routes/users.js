@@ -19,4 +19,10 @@ router.get('/:userId/feeds', async function (req, res, next) {
   res.json(feeds);
 });
 
+router.get('/:userId/articles', async function (req, res, next) {
+  const user = await User.findByPk(req.params.userId);
+  const feeds = await user.getArticles();
+  res.json(feeds);
+});
+
 module.exports = router;

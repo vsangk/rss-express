@@ -18,4 +18,10 @@ router.get('/:feedId/users', async function (req, res, next) {
   res.json(users);
 });
 
+router.get('/:feedId/articles', async function (req, res, next) {
+  const feed = await Feed.findByPk(req.params.feedId);
+  const articles = await feed.getArticles();
+  res.json(articles);
+});
+
 module.exports = router;

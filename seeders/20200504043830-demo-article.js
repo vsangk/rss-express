@@ -3,11 +3,12 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert(
-      'Feeds',
+      'Articles',
       [
         {
-          name: 'Reddit World News',
-          url: 'https://www.reddit.com/r/worldnews/.rss',
+          feedId: 1,
+          url:
+            'https://www.reddit.com/r/worldnews/comments/fz56vm/livethread_11_global_covid19_pandemic/',
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -17,6 +18,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('Feeds', null, {});
+    return queryInterface.bulkDelete('Articles', null, {});
   },
 };

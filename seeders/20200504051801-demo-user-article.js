@@ -3,11 +3,12 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert(
-      'Feeds',
+      'UserArticles',
       [
         {
-          name: 'Reddit World News',
-          url: 'https://www.reddit.com/r/worldnews/.rss',
+          userId: 1,
+          articleId: 1,
+          hasRead: false,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -17,6 +18,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('Feeds', null, {});
+    return queryInterface.bulkDelete('UserArticles', null, {});
   },
 };

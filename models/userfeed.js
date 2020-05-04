@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const UserFeed = sequelize.define(
-    'UserFeed',
+    'userFeed',
     {
       userId: DataTypes.INTEGER,
       feedId: DataTypes.INTEGER,
