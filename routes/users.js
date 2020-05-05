@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const { User } = require('../models');
+const { Feed, User } = require('../models');
 
 /* GET users listing. */
 router.get('/', async function (req, res, next) {
@@ -17,6 +17,13 @@ router.get('/:userId/feeds', async function (req, res, next) {
   const user = await User.findByPk(req.params.userId);
   const feeds = await user.getFeeds();
   res.json(feeds);
+});
+
+router.post('/:userId/feeds', async function (req, res, next) {
+  const feed = await Feed.findByPk(req.body.feedId);
+  const user = await User.findByPk(req.params.userId);
+  user.addFeed(feed);
+  res.json(user);
 });
 
 router.get('/:userId/articles', async function (req, res, next) {
