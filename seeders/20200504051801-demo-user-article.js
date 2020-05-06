@@ -1,18 +1,17 @@
 'use strict';
+const { cnnFeed } = require('../mocks');
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert(
       'UserArticles',
-      [
-        {
-          userId: 1,
-          articleId: 1,
-          hasRead: false,
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        },
-      ],
+      cnnFeed.items.map((item, index) => ({
+        userId: 1,
+        articleId: index + 1,
+        hasRead: false,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      })),
       {}
     );
   },

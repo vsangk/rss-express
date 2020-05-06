@@ -9,23 +9,7 @@ const parser = new Parser({
 
 const parseRss = async (feedUrl) => {
   const parsed = await parser.parseURL(feedUrl);
-
-  // TESTING
-  const reddit = await parser.parseURL(
-    'https://www.reddit.com/r/worldnews/.rss'
-  );
-  const kent = await parser.parseURL('https://kentcdodds.com/blog/rss.xml');
-  const cnn = await parser.parseURL(
-    'http://rss.cnn.com/rss/cnn_topstories.rss'
-  );
-  // TESTING
-
   return parsed;
-};
-
-const getRssItems = async (feedUrl) => {
-  const parsed = await parseRss(feedUrl);
-  return parsed.items;
 };
 
 const persistArticles = async (feedUrl) => {

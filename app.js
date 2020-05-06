@@ -11,7 +11,6 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const feedsRouter = require('./routes/feeds');
 const articlesRouter = require('./routes/articles');
-const { parseRss, persistUserArticles } = require('./services/parserService');
 
 sequelize
   .authenticate()
@@ -36,10 +35,5 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/feeds', feedsRouter);
 app.use('/articles', articlesRouter);
-
-// persistArticles('https://www.reddit.com/r/worldnews/.rss');
-// persistUserArticles(1, 'https://www.reddit.com/r/worldnews/.rss');
-
-parseRss('https://kentcdodds.com/blog/rss.xml');
 
 module.exports = app;

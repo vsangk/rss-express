@@ -1,4 +1,5 @@
 'use strict';
+const { cnnFeed } = require('../mocks');
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -6,8 +7,9 @@ module.exports = {
       'Feeds',
       [
         {
-          name: 'Reddit World News',
-          url: 'https://www.reddit.com/r/worldnews/.rss',
+          title: cnnFeed.title,
+          description: cnnFeed.description,
+          url: cnnFeed.link,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
